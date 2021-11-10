@@ -1,10 +1,18 @@
+
+#' Implements the case x when hack from SQL
+#' @param input A vector or scalar for the input values
+#' @param map_in A vector or scalar for the input for the mapping
+#' @param map_out A vector or scalar for the output for the mapping
+#' @param lastelse A value to output if there are no matches, if \code{NULL} then no matches will output \code{NA}.
+#' @param map_df A dataframe with the map_in as column 1 and map_out as column 2. When specified, takes priority over the specified input and output.
+#' @returns A vector of the map_out values that correspond to the inputs.
+#' @examples 
+#' casexwhen(input=c("a", "c"), map_in=c("a", "b", "c", "d"), mapout=c(1,2,3,4))
+
+
 casexwhen=function(input, map_in, map_out, lastelse=NULL, map_df=NULL)
 {
-  #this function aims to replicate the case x when idea from sql where you have one input and a basic 1-1 or many-1 mapping based on equalities
-  #input is the input vector or column from df
-  #map_in is the mapping input for the mapping
-  #map_out is the output value of the map
-  #map_dfis a dataframe with the criteria as column 1 and output as column 2, when specified takes priority over the specified input and output
+
   oneitem=function(input, map_in, map_out, lastelse=NULL)
   {
     #deals with the basic case of one item
@@ -24,18 +32,18 @@ casexwhen=function(input, map_in, map_out, lastelse=NULL, map_df=NULL)
   }
   if(!is.null(map_df))
   {
-    #remaps to citeria and output
+    #remaps to map_in and map_out
     map_in=unlist(map_df[1])
     map_out=unlist(map_df[2])
   }
   if(class(input)!=class(map_in))
   {
-    #checks the input and criteria are of the same type
+    #checks the input and map_in are of the same type
     stop(paste("Input is ", class(input), "and map_in is ", class(map_in), ". Types must match" ))
   }else
   if(length(map_in)!=length(map_out))
   {
-    # checks the criteria and output are of the same length
+    # checks the map_in and map_out are of the same length
     stop("Criteria and output are of differing lengths")
   }else
   {
