@@ -24,5 +24,5 @@ A vector of the map_out values that correspond to the inputs.
 Implements the case x when hack from SQL
 }
 \examples{
-casexwhen(input=c("a", "c"), map_in=c("a", "b", "c", "d"), mapout=c(1,2,3,4))
+\dontrun{casexwhen(input=c("a", "c"), map_in=c("a", "b", "c", "d"), mapout=c(1,2,3,4))}
 }
