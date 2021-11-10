@@ -7,7 +7,7 @@
 #' @param map_df A dataframe with the map_in as column 1 and map_out as column 2. When specified, takes priority over the specified input and output.
 #' @returns A vector of the map_out values that correspond to the inputs.
 #' @examples 
-#' casexwhen(input=c("a", "c"), map_in=c("a", "b", "c", "d"), mapout=c(1,2,3,4))
+#' \dontrun{casexwhen(input=c("a", "c"), map_in=c("a", "b", "c", "d"), mapout=c(1,2,3,4))}
 
 
 casexwhen=function(input, map_in, map_out, lastelse=NULL, map_df=NULL)
