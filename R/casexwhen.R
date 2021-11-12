@@ -8,7 +8,7 @@
 #' @returns A vector of the map_out values that correspond to the inputs.
 #' @examples 
 #' \dontrun{casexwhen(input=c("a", "c"), map_in=c("a", "b", "c", "d"), mapout=c(1,2,3,4))}
-
+#' @export
 
 casexwhen=function(input, map_in, map_out, lastelse=NULL, map_df=NULL)
 {
