@@ -1,6 +1,14 @@
 # caseXwhen
+```r
 
-So in SQL, when creating a new variable that has logic in it you can do case when
+install.packages("devtools")
+devtools::install.github("sgbstats/caseXwhen")
+
+```
+
+## Rationale
+
+In SQL, when creating a new variable that has logic in it you can do case when
 ```SQL
 select *,
 case when var1="a" then "a1"
@@ -10,7 +18,7 @@ case when var1="a" then "a1"
 from dummy;
 ```
 
-each of the when statements can have more complex logic like in the r case when statement but in this case where there is something that is incredibly repetetive and is only based on equality you can do
+Each of the when statements can have more complex logic like in the R `case_when` function but when there is something that is incredibly repetitive and is only based on equality you can do
 
 ```SQL
 select *,
@@ -21,7 +29,7 @@ case var1 when "a" then "a1"
 from dummy;
 ```
 
-now in r we can do the same with case when
+now in R we can do the same with `case_when`
 ```r
 dummy %>% mutate(var2=case_when(var1=="a"~"a1"
                                 var1=="b"~"b1",
@@ -30,6 +38,14 @@ dummy %>% mutate(var2=case_when(var1=="a"~"a1"
 but you I haven’t see the solution where you can specify the input and then the mapping to do it quicker.
 
 This leads to the function casexwhen where you specify of a vector input and mapping for speedier coding.
+
+## Syntax
+
+- input: A vector or scalar for the input values
+- map_in: A vector or scalar for the input for the mapping (Not used if map_df is specified)
+- map_out: A vector or scalar for the output for the mapping (Not used if map_df is specified)
+- lastelse: Optional. A value to output if there are no matches, if `NULL` then no matches will output `NA`.
+- map_df: Optional. A dataframe with the map_in as column 1 and map_out as column 2. When specified, takes priority over the specified input and output.
 
 ## Examples
 

@@ -4,7 +4,7 @@
 \alias{casexwhen}
 \title{Implements the case x when hack from SQL}
 \usage{
-casexwhen(input, map_in, map_out, lastelse = NULL, map_df = NULL)
+casexwhen(input, map_in = NULL, map_out = NULL, lastelse = NULL, map_df = NULL)
 }
 \arguments{
 \item{input}{A vector or scalar for the input values}
@@ -25,4 +25,6 @@ Implements the case x when hack from SQL
 }
 \examples{
 \dontrun{casexwhen(input=c("a", "c"), map_in=c("a", "b", "c", "d"), mapout=c(1,2,3,4))}
+\dontrun{c(1,3)}
+\dontrun{Check https://github.com/sgbstats/caseXwhen/ for more}
 }
