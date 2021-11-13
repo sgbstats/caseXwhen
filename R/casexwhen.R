@@ -10,7 +10,7 @@
 #' \dontrun{casexwhen(input=c("a", "c"), map_in=c("a", "b", "c", "d"), mapout=c(1,2,3,4))}
 #' @export
 
-casexwhen=function(input, map_in, map_out, lastelse=NULL, map_df=NULL)
+casexwhen=function(input, map_in=NULL, map_out=NULL, lastelse=NULL, map_df=NULL)
 {
 
   oneitem=function(input, map_in, map_out, lastelse=NULL)
@@ -35,16 +35,19 @@ casexwhen=function(input, map_in, map_out, lastelse=NULL, map_df=NULL)
     #remaps to map_in and map_out
     map_in=unlist(map_df[1])
     map_out=unlist(map_df[2])
+  }else if(is.null(map_in)|is.null(map_out))
+  {
+    stop("Mapping not spcified")
   }
   if(class(input)!=class(map_in))
   {
     #checks the input and map_in are of the same type
-    stop(paste("Input is ", class(input), "and map_in is ", class(map_in), ". Types must match" ))
+    stop(paste("Input is ", class(input), " and map_in is ", class(map_in), ". Types must match", sep="" ))
   }else
   if(length(map_in)!=length(map_out))
   {
     # checks the map_in and map_out are of the same length
-    stop("Criteria and output are of differing lengths")
+    stop("Map_in and map_out are of differing lengths")
   }else
   {
     # uses lapply to do each item of the vector and the unlists and unnames. 
