@@ -13,7 +13,7 @@ casexwhen(input, map_in = NULL, map_out = NULL, lastelse = NULL, map_df = NULL)
 
 \item{map_out}{A vector or scalar for the output for the mapping}
 
-\item{lastelse}{A value to output if there are no matches, if \code{NULL} then no matches will output \code{NA}.}
+\item{lastelse}{A value to output if there are no matches, if left as \code{NULL} then if input doesn't match with any of \code{map_in}, it will return \code{NA} for that value.}
 
 \item{map_df}{A dataframe with the map_in as column 1 and map_out as column 2. When specified, takes priority over the specified input and output.}
 }
