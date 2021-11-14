@@ -3,7 +3,7 @@
 #' @param input A vector or scalar for the input values
 #' @param map_in A vector or scalar for the input for the mapping
 #' @param map_out A vector or scalar for the output for the mapping
-#' @param lastelse A value to output if there are no matches, if \code{NULL} then no matches will output \code{NA}.
+#' @param lastelse A value to output if there are no matches, if left as \code{NULL} then if input doesn't match with any of \code{map_in}, it will return \code{NA} for that value.
 #' @param map_df A dataframe with the map_in as column 1 and map_out as column 2. When specified, takes priority over the specified input and output.
 #' @returns A vector of the map_out values that correspond to the inputs.
 #' @examples 

@@ -41,11 +41,11 @@ This leads to the function casexwhen where you specify of a vector input and map
 
 ## Syntax
 
-- input: A vector or scalar for the input values
-- map_in: A vector or scalar for the input for the mapping (Not used if map_df is specified)
-- map_out: A vector or scalar for the output for the mapping (Not used if map_df is specified)
-- lastelse: Optional. A value to output if there are no matches, if `NULL` then no matches will output `NA`.
-- map_df: Optional. A dataframe with the map_in as column 1 and map_out as column 2. When specified, takes priority over the specified input and output.
+- `input`: A vector or scalar for the input values
+- `map_in`: A vector or scalar for the input for the mapping (Not used if map_df is specified)
+- `map_out`: A vector or scalar for the output for the mapping (Not used if map_df is specified)
+- `lastelse`: Optional. A value to output if there are no matches, if left as `NULL` then if the input doesn't match with any of `map_in`, it will output `NA` for that value.
+- `map_df`: Optional. A dataframe with the map_in as column 1 and map_out as column 2. When specified, takes priority over the specified input and output.
 
 ## Examples
 
