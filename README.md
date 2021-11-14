@@ -51,42 +51,42 @@ This leads to the function casexwhen where you specify of a vector input and map
 
 Base case, where all of the inputs have a corresponding output
 ```r
-casexwhen(input=c(1,3), map_in=c(1,2,3,4), map_out=c("a","b", "c", "d"))
+casexwhen(input=c(1,3), map_in=c(1,2,3,4), map_out=c("a","b","c","d"))
 
-# returns c("a", "c")
+# returns c("a","c")
 
 ```
 
 If an input if missing from the map_in then it returns NA
 ```r
-casexwhen(input=c(1,5), map_in=c(1,2,3,4), map_out=c("a","b", "c", "d"))
+casexwhen(input=c(1,5), map_in=c(1,2,3,4), map_out=c("a","b","c","d"))
 
-# returns c("a", NA)
+# returns c("a",NA)
 
 ```
 
 Unless lastelse is specified then it returns that
 
 ```r
-casexwhen(input=c(1,5), map_in=c(1,2,3,4), map_out=c("a","b", "c", "d"), lastelse="z")
+casexwhen(input=c(1,5), map_in=c(1,2,3,4), map_out=c("a","b","c","d"), lastelse="z")
 
-# returns c("a", "z")
+# returns c("a","z")
 
 ```
 
 Rather than 2 vectors, you can specify a dataframe in map_df and it will take the first 2 columns from it. It will prioritise map_df over map_in and map_out
 
 ```r
-df=data.frame("in"=c(1,2,3,4), "out"=c("a","b", "c", "d"))
+df=data.frame("in"=c(1,2,3,4), "out"=c("a","b","c","d"))
 casexwhen(input=c(1,3),map_df=df, lastelse="z")
 
-# returns c("a", "c")
+# returns c("a","c")
 
 ```
 
 ```r
-df=data.frame("in"=c(1,2,3,4), "out"=c("a", "c","b", "d"))
-casexwhen(input=c(1,3),map_in=c(1,2,3,4), map_out=c("a","b", "c", "d"), map_df=df, lastelse="z")
+df=data.frame("in"=c(1,2,3,4), "out"=c("a","c","b","d"))
+casexwhen(input=c(1,3),map_in=c(1,2,3,4), map_out=c("a","b","c","d"), map_df=df, lastelse="z")
 
-# returns c("a", "b")
+# returns c("a","b")
 ```
