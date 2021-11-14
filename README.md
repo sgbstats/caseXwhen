@@ -2,7 +2,7 @@
 ```r
 
 install.packages("devtools")
-devtools::install.github("sgbstats/caseXwhen")
+devtools::install_github("sgbstats/caseXwhen")
 
 ```
 
